@@ -12,7 +12,7 @@
   <body>
 
 
-      <div class="w-full max-w-6xl m-auto pt-36">
+      <div class=" max-w-7xl m-auto pt-36">
         <div class="flex justify-center">
           <form action="" class="w-full max-w-3xl h-20 bg-slate-600 flex items-center rounded-full pl-7 pr-3 py-2 justify-between opacity-80" id="form">
             <input type="text" name="" placeholder="Search" class="bg-transparent outline-none px-6 text-2xl text-white" id="input">
@@ -23,26 +23,21 @@
            </button>
          </form>
         </div>
-<!--
-        <div class="hidden mt-40 loader">
-          <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-        </div> -->
 
-        <div class="my-20 flex gap-11 flex-wrap justify-center" id="movieContainer">
+        <div class="my-20 flex gap-8 flex-wrap justify-center" id="movieContainer">
         </div>
 
-        <div class="backgroud-modal relative" id="modalWindow">
-           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-14 h-14 hover:w-16 hover:h-16 modal-btn" id="modal-btn">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
+        <div class="backgroud-modal" id="modalWindow">
 
-          <div class="flex flex-row w-3/5 h-3/5 m-auto items-center bg-slate-900 movieCard">
 
+          <div class="w-3/5 h-fit m-auto bg-slate-900 items-center relative" >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-14 h-14 hover:w-16 hover:h-16 cursor-pointer modal-btn" id="modal-btn">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <div class="film" id="movieCard">
+            </div>
           </div>
-
-
         </div>
-
 
       </div>
 

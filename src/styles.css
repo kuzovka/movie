@@ -28,10 +28,34 @@ body {
 
 .modal-btn {
   position: absolute;
-  top: 190px;
-  right: 270px;
-  color: rgba(201, 57, 57, 0.712);
+  top: 20px;
+  right: 25px;
+  color: white;
 }
+
+.film {
+  display: grid;
+  grid-template-areas: 'title title' 'photo desc';
+  gap: 30px;
+  margin: 30px;
+  margin-top: 60px;
+
+}
+
+.film__title {
+  grid-area: title;
+  font-size: 28px;
+  font-weight: 300;
+}
+
+.film__img {
+  grid-area: photo;
+}
+
+.film__desc {
+  grid-area: desc;
+}
+
 
 
 

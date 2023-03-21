@@ -1,4 +1,3 @@
-// значение из инпута
 const form = document.getElementById('form')
 const input = document.getElementById("input")
 let movie
@@ -33,13 +32,16 @@ const options = {
         `
     }
 
+    input.value = ""
+
  }
 
  function renderMovies(movies){
+
     document.getElementById("movieContainer").innerHTML = ""
     movies.forEach((m) => {
         document.getElementById("movieContainer").innerHTML += `
-            <div class="flex flex-col justify-between w-56 rounded-lg bg-slate-800 text-center  overflow-hidden transition-all duration-200 hover:-translate-y-2 relative hover:bg-slate-600 hover:shadow-md">
+            <div class="flex flex-col justify-between w-56 rounded-lg bg-slate-800 text-center  overflow-hidden transition-all duration-200 hover:-translate-y-2 relative hover:bg-slate-700 hover:shadow-md">
                 <img class="w-56 h-80 object-cover" src="${m.Poster}"/>
                 <div class="px-3 py-4  font-bold text-lg uppercase">${m.Title}</div>
                 <div class="px-3 pb-3 font-bold text-base text-blue-700">${m.Year}</div>
@@ -68,8 +70,6 @@ function closeModal() {
     modalWindow.style.display = "none"
 }
 
-
-
 async function openMoreInformation(id){
     const response = await fetch('https://moviesdb5.p.rapidapi.com/om?i='+id, options)
     const movieDetails = await response.json()
@@ -78,34 +78,28 @@ async function openMoreInformation(id){
 
     modalWindow.style.display = "flex"
 
-    const currentmovieDetails = movieDetails.find((m) => m.id === id)
     document.getElementById("movieCard").innerHTML = ""
     document.getElementById("movieCard").innerHTML += `
-        <div class="w-1/3">
-            <img class="w-full h-full object-cover" src="${currentmovieDetails.Poster}"/>
-         </div>
-         <div>
-            <p class="text-black">Actors - актеры
-                Awards - награды
-                Genre - жанр
-                Country - страна
-                Plot - сюжет
-                imdbRating - рейтинги на IMDB
-                Released - дата выхода
-                Runtime - продолжительность
-                Title - название
-            </p>
+            <div class "film__title">
+                <p class="text-white uppercase text-3xl pb-3">${movieDetails.Title}</p>
+            </div>
+            <div class="film__img">
+                <img class="overflow-y-hidden" src="${movieDetails.Poster}"/>
+            </div>
+            <div class="film__desc">
+
+                <p class="text-teal-400 text-lg">Released: ${movieDetails.Released}</p>
+                <p class="text-teal-400 text-lg">Rating: ${movieDetails.imdbRating  !== "N/A" ?  movieDetails.imdbRating : "-"}
+                </p>
+
+                <p class="text-teal-400 text-lg">Runtime: ${movieDetails.Runtime !== "N/A" ?  movieDetails.Runtime : "-"}</p>
+                <p class="text-teal-400 text-lg">Awards: ${movieDetails.Awards !== "N/A" ?  movieDetails.Awards : "-"}</p>
+                <p class="text-teal-400 text-lg">Country: ${movieDetails.Country !== "N/A" ?  movieDetails.Country : "-"}</p>
+                <p class="text-teal-400 text-lg">Genre: ${movieDetails.Genre !== "N/A" ?  movieDetails.Genre : "-"}</p>
+                <br>
+
+                <p class="text-white text-xl font-light tracking-wider">Plot: <br> ${movieDetails.Plot !== "N/A" ?  movieDetails.Plot : "-"}</p>
+
         </div>
-
-    `
+        `
 }
-
-
-
-
-
-
-
-
-// // // не забыть про лоудер при загузке фильме
-// // const louder = document.querySelector(".loader")
